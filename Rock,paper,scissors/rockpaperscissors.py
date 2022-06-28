@@ -13,32 +13,14 @@ def check_result_of_round(ia, user):
     global user_score
     global ia_score
 
-    if ia == "rock" and user == 0:
+    if ia == "rock" and user == 0 or ia == "paper" and user == 1 or ia =="scissors" and user == 2:
         return print(f"Tied round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia == "rock" and user == 1:
+    elif ia == "rock" and user == 1 or ia =="paper" and user == 2 or ia == "scissors" and user == 0:
         user_score += 1
         return print(f"User won the round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia =="rock" and user == 2:
+    elif ia =="rock" and user == 2 or ia == "paper" and user == 0 or ia == "scissors" and user == 1:
         ia_score += 1
         return print(f"IA won the round: IA: {ia} | User: {ia_choose[user]}")
-
-    if ia == "paper" and user == 0:
-        ia_score += 1
-        return print(f"IA won the round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia == "paper" and user == 1:
-        return print(f"Tied round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia =="paper" and user == 2:
-        user_score += 1
-        return print(f"User won the round: IA: {ia} | User: {ia_choose[user]}")
-
-    if ia == "scissors" and user == 0:
-        user_score += 1
-        return print(f"User won the round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia == "scissors" and user == 1:
-        ia_score += 1
-        return print(f"IA won the round: IA: {ia} | User: {ia_choose[user]}")
-    elif ia =="scissors" and user == 2:
-        return print(f"Tied round: IA: {ia} | User: {ia_choose[user]}")
 
 def check_final_result_scores():
     if user_score > ia_score:
