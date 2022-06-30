@@ -1,28 +1,26 @@
-from random import random
+from random import randint
 from time import sleep
 
 numbers_chosen = []
 
-number_selected = int(input("Select a random number: "))
+ranged_selected = int(input("Select a max ranged: "))
+random_number = int(input(f"Select a random number in range: {ranged_selected}: "))
 
-number_selected_ia = round(random() * number_selected)
-numbers_chosen.append(number_selected_ia)
-print(f"The IA choose: {number_selected_ia}")
+while random_number > ranged_selected or random_number < 0:
+    random_number = int(input(f"Select a random number in range: {ranged_selected}: "))
 
-def check_repeat_number_chosen(n):
-    if n not in numbers_chosen:
-        numbers_chosen.append(number_selected_ia)
+ia_number_selected = randint(0, ranged_selected)
+numbers_chosen.append(ia_number_selected)
+print(f"The computer plays: {ia_number_selected}")
+sleep(1)
+
+while ia_number_selected != random_number:
+    ia_number_selected = randint(0, ranged_selected)
+    if ia_number_selected not in numbers_chosen:
+        numbers_chosen.append(ia_number_selected)
+        print(f"Oops, you fail. Try again bot. The computer plays: {ia_number_selected}")
         sleep(1)
-        return print(f"Oops, the computers fail. Try again bot. The IA choose: {number_selected_ia}")
     else:
         pass
 
-sleep(1)
-
-while number_selected != number_selected_ia:
-
-    number_selected_ia = round(random() * number_selected)
-    check_repeat_number_chosen(number_selected_ia)
-    
-
-print("The computer finally found the secret number.")
+print("The computer finally find the secret number.")
