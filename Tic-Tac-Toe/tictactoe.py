@@ -63,11 +63,11 @@ def check_game_finish(symbolA, symbolB):
 
 def user_vs_user():
 
-    userA_symbol = input("[USER A] Select your symbol like [X or O] but can select other: ")
-    userB_symbol = input("[USER B] Select your symbol like [X or O] but can select other: ")
+    userA_symbol = input("[USER A] Select your symbol like [X or O] but you can select other: ")
+    userB_symbol = input("[USER B] Select your symbol like [X or O] but you can select other: ")
 
     while userB_symbol == userA_symbol:
-        userB_symbol = input("[USER B] Select your symbol like [X or O] but can select other: ")
+        userB_symbol = input("[USER B] Select your symbol like [X or O] but you can select other: ")
 
     while game_finish == False:
         userA = input("User A plays: ").upper()
