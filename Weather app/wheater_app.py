@@ -92,7 +92,7 @@ class Program:
         place_long = long
         place_lat = lat
 
-        API_KEY = "d378f278bd4125834b9868b263e70ac4"
+        API_KEY = 'YOUR API KEY'
         api = f"https://api.openweathermap.org/data/2.5/weather?lat={round(place_lat)}&lon={round(place_long)}&appid={API_KEY}"
 
         json_data = requests.get(api).json()
