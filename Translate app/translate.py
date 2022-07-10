@@ -1,5 +1,3 @@
-from cgitb import text
-from fnmatch import translate
 from tkinter import *
 from tkinter import ttk, messagebox
 from googletrans import Translator, LANGUAGES
