@@ -60,8 +60,7 @@ def record():
         if interval_crono:
             data = stream.read(chunk)
             frames.append(data)
-        
-        root.after(1, save_data)
+            root.after(1, save_data)
 
     save_data()
         
@@ -98,13 +97,6 @@ def crono_finish():
     else:
         crono_label["text"] = f"Finished in: {mins}:{sec}. {filename.get()} saved."
 
-
-    if interval_crono is not None:
-        root.after_cancel(interval_crono)
-        interval_crono = None
-        sec = 0
-        mins = 0
-
     stop_button['state'] = DISABLED
     start_button['state'] = NORMAL 
     label_image['image'] = mic_image
@@ -119,6 +111,17 @@ def crono_finish():
     wf.setframerate(fs)
     wf.writeframes(b"".join(frames))
     wf.close()
+
+    if interval_crono is not None:
+        root.after_cancel(interval_crono)
+        interval_crono = None
+        filename.set("Insert a new one")
+        py_audio = None
+        stream = None
+        frames = []
+        sec = 0
+        mins = 0
+
 
 
 root.mainloop()
