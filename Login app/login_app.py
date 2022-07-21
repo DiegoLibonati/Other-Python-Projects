@@ -89,10 +89,13 @@ def login():
 
     db_user = db.users.find_one({"user":user})
 
-    if check_password_hash(db_user['password'], password):
-        program(db_user["user"])
+    if db_user == None:
+        confirm_text_label.set("Invalid user")
     else:
-        confirm_text_label.set("Invalid password")
+        if check_password_hash(db_user['password'], password):
+            program(db_user["user"])
+        else:
+            confirm_text_label.set("Invalid password")
 
 def program(user):
     win = Toplevel()
