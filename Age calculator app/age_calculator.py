@@ -63,7 +63,11 @@ def get_current_age():
             relative_age += 1
             final_label["text"] = f"Hi {get_name}, your age is {relative_age}."
 
-        elif int(get_month) == current_month and int(get_day) >= current_day:
+        elif int(get_month) == current_month and current_day < int(get_day):
+            relative_age -= 1
+            final_label["text"] = f"Hi {get_name}, your age is {relative_age}."
+
+        elif int(get_month) == current_month and current_day >= int(get_day):
             relative_age += 1
             final_label["text"] = f"Hi {get_name}, your age is {relative_age}."
             
